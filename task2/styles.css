@@ -1,0 +1,31 @@
+body{
+    font-family: Calibri;
+}
+
+.mytable{
+    margin-left: auto;
+    margin-right: auto;
+    border: solid 		#D3D3D3;
+    border-width: 0.5px;
+    border-collapse: collapse;
+}
+
+td{
+    text-align: center;
+    border-width: 0.5px;
+    padding-bottom:5px;
+    padding-left:20px;
+    padding-right:20px;
+    padding-top:5px;
+    border:solid 		#D3D3D3;
+}
+
+.color{
+    background-color: 	#F0F0F0;
+}
+
+.index{
+    text-align: center;
+    padding: 20px;
+}
+

@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script>
+        let sourceId; // Variable to store the ID of the dragged element
+        let sourceIndex; // Variable to store the index of the dragged element within its parent
+    
+        function startDragging(event) {
+            sourceId = event.target.id; // Store the ID of the dragged element
+            sourceIndex = Array.from(event.target.parentNode.children).indexOf(event.target); // Store the index of the dragged element within its parent
+            event.dataTransfer.setData("text", event.target.id); // Set the data to be transferred during the drag-and-drop operation
+        }
+    
+        function allowDropAction(event) {
+            event.preventDefault(); // Prevent the default behavior of the drop target element
+        }
+    
+        function dropOnTarget(event) {
+            event.preventDefault(); // Prevent the default behavior of the drop target element
+            let sourceElement = document.getElementById(sourceId); // Get the dragged element by its ID
+            let targetElement = document.getElementById(event.target.id); // Get the drop target element by its ID
+            let targetIndex = Array.from(event.target.parentNode.children).indexOf(event.target); // Get the index of the drop target element within its parent
+    
+            // Check if the source and target elements belong to the same parent row and have the same index
+            if (sourceElement.parentNode.parentNode.rowIndex === targetElement.parentNode.parentNode.rowIndex && sourceIndex === targetIndex) {
+                targetElement.innerHTML = sourceElement.innerHTML; // Swap the innerHTML of the source and target elements
+                sourceElement.innerHTML = ""; // Clear the innerHTML of the source element
+            }
+        }
+    </script>
+</head>
+<body>
+    <table id="myTable" class="mytable">
+        <tr>
+            <td></td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+
+        <tr class="color">
+            <td class="index">1</td>
+            <td>
+                <div draggable="true" ondragstart="startDragging(event)" ondrop="dropOnTarget(event)" ondragover="allowDropAction(event)" id="row1">AA</div>
+                <div draggable="true" ondragstart="startDragging(event)" ondrop="dropOnTarget(event)" ondragover="allowDropAction(event)" id="row2">Person A</div> 
+                <div draggable="true" ondragstart="startDragging(event)" ondrop="dropOnTarget(event)" ondragover="allowDropAction(event)" id="row3">1 cup/day</div>
+            </td>
+            <td>
+                <div draggable="true" ondragstart="startDragging(event)" ondrop="dropOnTarget(event)" ondragover="allowDropAction(event)" id="row4">AB</div>
+                <div draggable="true" ondragstart="startDragging(event)" ondrop="dropOnTarget(event)" ondragover="allowDropAction(event)" id="row5">Person B</div> 
+                <div draggable="true" ondragstart="startDragging(event)" ondrop="dropOnTarget(event)" ondragover="allowDropAction(event)" id="row6">2 cup/day</div>
+            </td>
+            <td>
+                <div draggable="true" ondragstart="startDragging(event)" ondrop="dropOnTarget(event)" ondragover="allowDropAction(event)" id="row7">BB</div>
+                <div draggable="true" ondragstart="startDragging(event)" ondrop="dropOnTarget(event)" ondragover="allowDropAction(event)" id="row8">Person C</div> 
+                <div draggable="true" ondragstart="startDragging(event)" ondrop="dropOnTarget(event)" ondragover="allowDropAction(event)" id="row9">5 cup/day</div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="index">2</td>
+            <td>
+                <div draggable="true" ondragstart="startDragging(event)" ondrop="dropOnTarget(event)" ondragover="allowDropAction(event)" id="row10">AA</div>
+                <div draggable="true" ondragstart="startDragging(event)" ondrop="dropOnTarget(event)" ondragover="allowDropAction(event)" id="row11">Person G</div>
+                <div draggable="true" ondragstart="startDragging(event)" ondrop="dropOnTarget(event)" ondragover="allowDropAction(event)" id="row12">Never</div>
+            </td>
+            <td>
+                <div draggable="true" ondragstart="startDragging(event)" ondrop="dropOnTarget(event)" ondragover="allowDropAction(event)" id="row13">AB</div>
+                <div draggable="true" ondragstart="startDragging(event)" ondrop="dropOnTarget(event)" ondragover="allowDropAction(event)" id="row14">Person E</div>
+                <div draggable="true" ondragstart="startDragging(event)" ondrop="dropOnTarget(event)" ondragover="allowDropAction(event)" id="row15">5 cup/day</div>
+            </td>
+            <td>
+                <div draggable="true" ondragstart="startDragging(event)" ondrop="dropOnTarget(event)" ondragover="allowDropAction(event)" id="row16">BB</div>
+                <div draggable="true" ondragstart="startDragging(event)" ondrop="dropOnTarget(event)" ondragover="allowDropAction(event)" id="row17">Person D</div>
+                <div draggable="true" ondragstart="startDragging(event)" ondrop="dropOnTarget(event)" ondragover="allowDropAction(event)" id="row18">13 cup/day</div>
+            </td>
+        </tr>
+        
+        <tr class="color">
+            <td class="index">3</td>
+            <td>
+                <div draggable="true" ondragstart="startDragging(event)" ondrop="dropOnTarget(event)" ondragover="allowDropAction(event)" id="row19">AB</div>
+                <div draggable="true" ondragstart="startDragging(event)" ondrop="dropOnTarget(event)" ondragover="allowDropAction(event)" id="row20">Person D</div>
+                <div draggable="true" ondragstart="startDragging(event)" ondrop="dropOnTarget(event)" ondragover="allowDropAction(event)" id="row21">Don't like</div>
+            </td>
+            <td>
+                <div draggable="true" ondragstart="startDragging(event)" ondrop="dropOnTarget(event)" ondragover="allowDropAction(event)" id="row22">AB</div>
+                <div draggable="true" ondragstart="startDragging(event)" ondrop="dropOnTarget(event)" ondragover="allowDropAction(event)" id="row23">Person J</div>
+                <div draggable="true" ondragstart="startDragging(event)" ondrop="dropOnTarget(event)" ondragover="allowDropAction(event)" id="row24">15 cup/day</div>
+            </td>
+            <td>
+                <div draggable="true" ondragstart="startDragging(event)" ondrop="dropOnTarget(event)" ondragover="allowDropAction(event)" id="row25">BB</div>
+                <div draggable="true" ondragstart="startDragging(event)" ondrop="dropOnTarget(event)" ondragover="allowDropAction(event)" id="row26">Person K</div>
+                <div draggable="true" ondragstart="startDragging(event)" ondrop="dropOnTarget(event)" ondragover="allowDropAction(event)" id="row27">8 cup/day</div>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

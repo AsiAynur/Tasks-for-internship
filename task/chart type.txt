@@ -1,0 +1,18 @@
+1# The suitable chart type for this data is a radar chart. 
+It helps grasp and visualize multivariable data easiely since this chart allows us to
+plot the values of each category along seperate axis. Moreover, it simplify to 
+distinguish the differences in sub-categories. In our case this type of chart allows us
+to compare the genetic scores across the five categories for each individual in a convinient way.
+
+2# Bar chart is a good option to comapre people's genetic capacity. 
+They can provide a clear, straightforward view of each individual's scores in each category.
+
+
+
+
+
+
+
+
+
+

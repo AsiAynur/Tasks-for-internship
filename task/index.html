@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Power Predisposition</th>
+                <th>Endurance Predisposition</th>
+                <th>Injury Risk</th>
+                <th>Oxygen Capacity</th>
+                <th>Motor Skills</th>
+            </tr>
+        </thead>
+        <tbody id="data-out"></tbody>
+    </table>
+
+    <script>
+        var myArray = [
+    {
+        "id": 1,
+        "PowerPredisposition": 67,
+        "EndurancePredisposition": 33,
+        "InjuryRisk": 25,
+        "OxygenCapacity": 33,
+        "MotorSkills": 0
+    },
+    {
+        "id": 2,
+        "PowerPredisposition": 55,
+        "EndurancePredisposition": 45,
+        "InjuryRisk": 50,
+        "OxygenCapacity": 54,
+        "MotorSkills": 50
+    },
+    {
+        "id": 3,
+        "PowerPredisposition": 48,
+        "EndurancePredisposition": 52,
+        "InjuryRisk": 25,
+        "OxygenCapacity": 42,
+        "MotorSkills": 0
+    },
+    {
+        "id": 4,
+        "PowerPredisposition": 80,
+        "EndurancePredisposition": 20,
+        "InjuryRisk": 100,
+        "OxygenCapacity": 70,
+        "MotorSkills": 75
+    },
+    {
+        "id": 5,
+        "PowerPredisposition": 63,
+        "EndurancePredisposition": 37,
+        "InjuryRisk": 0,
+        "OxygenCapacity": 95,
+        "MotorSkills": 100
+    }
+]
+//create the table
+buildTable(myArray)
+function buildTable(data){
+
+    // assigning to the variable a table place in our html code
+		var table = document.getElementById('data-out')
+        //using loop for to fill the table with elements from .json
+		for (var i = 0; i < data.length; i++){
+			var row = `<tr>
+                            <td>${data[i].id}</td>
+							<td>${data[i].PowerPredisposition}</td>
+							<td>${data[i].EndurancePredisposition}</td>
+							<td>${data[i].InjuryRisk}</td>
+                            <td>${data[i].OxygenCapacity}</td>
+                            <td>${data[i].MotorSkills}</td>
+					  </tr>`
+
+              //filling the table in HTML        
+			table.innerHTML += row
+
+
+		}
+	}
+
+    </script>
+</body>
+</html>
